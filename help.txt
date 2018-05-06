@@ -1,0 +1,81 @@
+--------------------------------------------------------------------------------------------------------------
+-----------------------------------TYPESCRIPT FUNDAMENTALS----------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+
+->  Ts is an object oriented and functional programming language.
+->  Ts is the superset of js and it is transpiled (converting source code written in one programming language
+    to another) to Js
+->  It compiles to Js for either browsers or node
+->  String mein methods hote hain but string mein nahi it is just primitive types
+->  We can change String as they are objects but not string
+->  var declaratons are hoisted
+    eg: consOle.log(x)
+        x = 10;       //perfectly fine with var 
+        BUT, let use kiya toh it will throw error
+->  JS goes through 2 phases, waha pe interpreter pehle chalta hai and usne tab takk (var) ko scan kar liya hai
+    toh error nahi ayega and your code will compile sucessfully
+->  const declarations are not hoisted and it cannot be changed and has to declared at time of definitions 
+->  typings are present for each library
+        {USAGE : when we install something using npm and their we specify typings}
+->  tsc --init for getting the tsconfig.json automatically gets created
+
+---------------------------------------------------------------------------------------------------------------
+-> Commands for project setup :-
+    # npm init                                                  // project setup
+    # npm install typescript typings --save-dev                 // install typescript and saved as dev mode
+    # tsc --init                                                // to get tscongif.json automatically
+    # npm link typings                                          // to install and link to the typings
+    # typings install dt~core-js dt~node --global --save        // to install core-js and node globally
+
+    # npm install concurrently --save               {agar do se zada commands ikathi run karni hai toh}
+
+    Then inside your package.json write in script tag : 
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "tsc && concurrently \"npm run tsc:w\"  \"npm run lite-server\"",
+        "tsc": "tsc",
+        "tsc:w":"tsc -w",
+        "lite-server": "lite-server"
+
+    and now on the terminal you need to write :- 
+    # npm run start
+
+---------------------------------------------------------------------------------------------------------------
+    NOTE :
+->  tsc se typescript chalegi
+->  tsc -w se watch service start hogi and it will watch for changes in the file
+->  lite server is a server {jab bhi code change karoge it will refresh browser}
+
+---------------------------------------------------------------------------------------------------------------
+->  Js browser will save the things for further use and hence it will be fast
+    eg: ek func jo har baar same value return kar rha hai
+    Therefore, TS will not allow you to take a number variable and change type to string
+->  TS will not allow us to have string functions written over number variable 
+->  Also, when we specify type toh woh sirf dot . lagane se wahi func show karegs uske related na ki saare
+->  function fun(name:string,pass:string):user{
+        // return a user now gets mandatory
+    }
+->  functions are hoisted but the function expressions are not hoisted
+->  While passing the objects in function first of complete the whole structure of the object parameters 
+    and then we van adddd etra parameters, But jitne 
+
+->  objects Js ki file mein ayega but interface nahi ayega
+->  interfaces will not be available in the JS code
+
+---------------------------------------------------------------------------------------------------------------
+Day - 11
+---------------------------------------------------------------------------------------------------------------
+->  classes
+->  agar instances alg chahiye toh class banado 
+->  lekin if you want to work with same data item then you can use prototypes
+->  ts says just give type checking of classe sand not prototype
+->  let keyword cannot be used inside the class but can be used inside the method just like java
+->  so derived class ka constructor chalane se pehle tumhe base ka achalana padega
+->  functions mein we can also give the default values gar woh pass hui toh theek hai agar nahi hui toh wo 
+    default utha lega
+->  Decorators :
+        -> f(x)
+        -> g(x)
+        -> works as (f o g)(x)
+        -> class decorator constructor pe kaam karega
+        -> method decorator function ki existing properties ko change karega
+    
